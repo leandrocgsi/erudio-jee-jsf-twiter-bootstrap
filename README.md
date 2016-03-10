@@ -1,6 +1,8 @@
 erudio-jee-jsf-twiter-bootstrap: Using Multiple Java EE 6 Technologies Deployed as an EAR
 ==============================================================================================
 
+[![Build Status](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twiter-bootstrap.svg?branch=master)](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twiter-bootstrap)
+
 Level: Intermediate  
 Technologies: CDI, JSF, JPA, EJB, JAX-RS, BV, EAR  
 Summary: The `erudio-jee-jsf-twiter-bootstrap` quickstart demonstrates web-enabled database application, using JSF, CDI, EJB, JPA and Bean Validation, packaged as an EAR.   
