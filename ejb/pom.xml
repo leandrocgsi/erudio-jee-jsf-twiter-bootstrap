@@ -74,6 +74,10 @@
             <scope>provided</scope>
         </dependency>
 
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
 
         <!-- Test scope dependencies -->
         <dependency>
