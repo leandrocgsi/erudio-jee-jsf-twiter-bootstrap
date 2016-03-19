@@ -1,4 +1,4 @@
-erudio-jee-jsf-twiter-bootstrap: Using Multiple Java EE 6 Technologies Deployed as an EAR
+Erudio JEE JSF Twitter Bootstrap: Using Multiple Java EE 6 Technologies Deployed as an EAR
 ==============================================================================================
 
 [![Build Status](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twiter-bootstrap.svg?branch=master)](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twiter-bootstrap)
@@ -6,25 +6,40 @@ erudio-jee-jsf-twiter-bootstrap: Using Multiple Java EE 6 Technologies Deployed 
 Level: Intermediate  
 Technologies: CDI, JSF, JPA, EJB, JAX-RS, BV, EAR  
 Summary: The `erudio-jee-jsf-twiter-bootstrap` quickstart demonstrates web-enabled database application, using JSF, CDI, EJB, JPA and Bean Validation, packaged as an EAR.   
-Target Product: JBoss EAP  
+Target Product: WildFly 10.   
 Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
+
+How to Build Your App Based in Same Archetype
+---------------------
+
+This project was builded based in [JBoss Archetypes -JEE](http://www.jboss.org//archetypes/eap/jboss-javaee6-webapp-ear-archetype-eap/index.html). You can do your app based in same project, using folowing command:
+
+        mvn archetype:generate \
+        -DarchetypeGroupId=org.jboss.archetype.eap \
+        -DarchetypeArtifactId=jboss-javaee6-webapp-ear-archetype \
+        -DarchetypeVersion=6.4.0.GA \
+        -DgroupId=com.your.package.structure \
+        -DartifactId=your-app-artifact-id \
+        -Dversion=1.0-SNAPSHOT \
+        -Dpackage=com.your.package.structure \
+        -Darchetype.interactive=false
 
 What is it?
 -----------
 
-The `erudio-jee-jsf-twiter-bootstrap` quickstart is a deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on Red Hat JBoss Enterprise Application Platform. 
+The `erudio-jee-jsf-twiter-bootstrap` quickstart is a deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on Red Hat WildFly 10. 
 
 It demonstrates how to create a compliant Java EE 6 application using JSF 2.1, CDI 1.0, JAX-RS, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java. It is based on the [kitchensink](../kitchensink/README.md) quickstart but is packaged as an EAR archive.
 
-_Note: This quickstart uses the H2 database included with Red Hat JBoss Enterprise Application Platform 6. It is a lightweight, relational example datasource that is used for examples only. It is not robust or scalable, is not supported, and should NOT be used in a production environment!_
+_Note: This quickstart uses the H2 database included with Red Hat WildFly 10. It is a lightweight, relational example datasource that is used for examples only. It is not robust or scalable, is not supported, and should NOT be used in a production environment!_
 
-_Note: This quickstart uses a `*-ds.xml` datasource configuration file for convenience and ease of database configuration. These files are deprecated in JBoss EAP 6.4 and should not be used in a production environment. Instead, you should configure the datasource using the Management CLI or Management Console. Datasource configuration is documented in the [Administration and Configuration Guide](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/) for Red Hat JBoss Enterprise Application Platform._
+_Note: This quickstart uses a `*-ds.xml` datasource configuration file for convenience and ease of database configuration. These files are deprecated in JBoss EAP 6.4 and should not be used in a production environment. Instead, you should configure the datasource using the Management CLI or Management Console. Datasource configuration is documented in the [Administration and Configuration Guide](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/) for Red Hat WildFly 10._
 
 
 System requirements
 -------------------
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform 6.1 or later. 
+The application this project produces is designed to be run on Red Hat WildFly 10 or later. 
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
@@ -147,4 +162,3 @@ Debug the Application
 If you want to debug the source code of any library in the project, run the following command to pull the source into your local repository. The IDE should then detect it.
 
         mvn dependency:sources
-
