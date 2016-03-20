@@ -19,7 +19,6 @@ import br.com.erudio.model.City;
 import br.com.erudio.model.PublicAreaType;
 import br.com.erudio.model.State;
 
-@SuppressWarnings("deprecation")
 @Entity
 @Table(name="address")
 public class Address implements Serializable {

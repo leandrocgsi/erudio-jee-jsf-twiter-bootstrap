@@ -19,8 +19,6 @@ import javax.persistence.Temporal;
 
 import org.hibernate.annotations.ForeignKey;
 
-
-@SuppressWarnings("deprecation")
 @Entity
 @Table (name="person")
 @NamedQueries(
