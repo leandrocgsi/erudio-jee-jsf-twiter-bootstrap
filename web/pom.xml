@@ -14,7 +14,7 @@
 
    <name>erudio-jee-jsf-twiter-bootstrap - web</name>
 
-   <url>http://jboss.org/jbossas</url>
+   <url>http://wildfly.org</url>
    <licenses>
       <license>
          <name>Apache License, Version 2.0</name>
@@ -33,10 +33,10 @@
          <scope>provided</scope>
       </dependency>
 
-      <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss EAP 6 -->
+      <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
-         <groupId>org.jboss.spec.javax.ws.rs</groupId>
-         <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+         <groupId>org.jboss.resteasy</groupId>
+         <artifactId>jaxrs-api</artifactId>
          <scope>provided</scope>
       </dependency>
 
@@ -47,21 +47,23 @@
          <scope>provided</scope>
       </dependency>
       
-      <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP 6 -->
+      <!-- Import the JSF API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
          <groupId>org.jboss.spec.javax.faces</groupId>
-         <artifactId>jboss-jsf-api_2.1_spec</artifactId>
+         <artifactId>jboss-jsf-api_2.2_spec</artifactId>
          <scope>provided</scope>
       </dependency>
 
-      <!-- Import the JPA API, we use provided scope as the API is included in JBoss EAP 6 -->
+      <!-- Import the JPA API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
          <groupId>org.hibernate.javax.persistence</groupId>
-         <artifactId>hibernate-jpa-2.0-api</artifactId>
+         <artifactId>hibernate-jpa-2.1-api</artifactId>
          <scope>provided</scope>
       </dependency>
 
-       <!-- Hibernate Validator is shipped in JBoss EAP 6 -->
+       <!-- JSR-303 (Bean Validation) Implementation -->
+       <!-- Provides portable constraints such as @Email -->
+       <!-- Hibernate Validator is shipped in JBoss WildFly -->
        <dependency>
            <groupId>org.hibernate</groupId>
            <artifactId>hibernate-validator</artifactId>
@@ -83,7 +85,7 @@
             <artifactId>maven-war-plugin</artifactId>
             <version>${version.war.plugin}</version>
             <configuration>
-               <!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
+               <!-- Java EE 7 doesn't require web.xml, Maven needs to catch up! -->
                <failOnMissingWebXml>false</failOnMissingWebXml>
             </configuration>
          </plugin>

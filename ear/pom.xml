@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -14,7 +14,7 @@
 
     <name>erudio-jee-jsf-twiter-bootstrap - ear</name>
 
-    <url>http://jboss.org/jbossas</url>
+    <url>http://wildfly.org</url>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -44,7 +44,11 @@
                 <artifactId>maven-ear-plugin</artifactId>
                 <version>${version.ear.plugin}</version>
                 <configuration>
-                    <version>6</version>
+                    <!-- Tell Maven we are using Java EE 7 -->
+                    <version>7</version>
+                    <!-- Use Java EE ear libraries as needed. Java EE ear libraries 
+                        are in easy way to package any libraries needed in the ear, and automatically 
+                        have any modules (EJB-JARs and WARs) use them -->
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <modules>
                     <!-- Default context root of the web app is /erudio-jee-jsf-twiter-bootstrap-web. 
@@ -61,14 +65,15 @@
                     <fileNameMapping>no-version</fileNameMapping>
                 </configuration>
             </plugin>
-            <!-- The JBoss AS plugin deploys your ear to a local JBoss EAP container -->
+            <!-- The WildFly plugin deploys your ear to a local WildFly container -->
             <!-- Due to Maven's lack of intelligence with EARs we need to configure 
-                the jboss-as maven plugin to skip deployment for all modules. We then enable 
+                the wildfly maven plugin to skip deployment for all modules. We then enable
                 it specifically in the ear module. -->
             <plugin>
-                <groupId>org.jboss.as.plugins</groupId>
-                <artifactId>jboss-as-maven-plugin</artifactId>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
                 <configuration>
+                    <filename>erudio-jee-jsf-twiter-bootstrap.ear</filename>
                     <skip>false</skip>
                 </configuration>
             </plugin>
