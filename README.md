@@ -39,15 +39,7 @@ The example is composed of three Maven projects, each with a shared parent. The 
 
 The root `pom.xml` builds each of the subprojects in the above order and deploys the EAR archive to the server.
 
-The example follows the common "Hello World" pattern. These are the steps that occur:
-
-1. A JSF page asks the user for their name.
-2. On clicking _Greet_, the name is sent to a managed bean named `Greeter`.
-3. On setting the name, the `Greeter` invokes the `GreeterEJB`, which was injected to the managed bean. Notice the field annotated with `@EJB`.
-4. The response from invoking the `GreeterEJB` is stored in a field (message) of the managed bean.
-5. The managed bean is annotated as `@SessionScoped`, so the same managed bean instance is used for the entire session. This ensures that the message is available when the page reloads and is displayed to the user.
-
-It demonstrates how to create a compliant Java EE 7 application using JSF 2.1, CDI 1.0, JAX-RS, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java. It is based on the [kitchensink](../kitchensink/README.md) quickstart but is packaged as an EAR archive.
+The example follows the common "Hello World" pattern. It demonstrates how to create a compliant Java EE 7 application using JSF 2.1, CDI 1.0, JAX-RS, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java. It is based on the [kitchensink](../kitchensink/README.md) quickstart but is packaged as an EAR archive.
 
 _Note: This quickstart uses the H2 database included with Red Hat WildFly 10. It is a lightweight, relational example datasource that is used for examples only. It is not robust or scalable, is not supported, and should NOT be used in a production environment!_
 
