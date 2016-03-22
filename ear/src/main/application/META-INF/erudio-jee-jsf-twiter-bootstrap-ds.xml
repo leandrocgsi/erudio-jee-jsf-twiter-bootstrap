@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<datasources xmlns="http://www.jboss.org/ironjacamar/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
-   <!-- The datasource is bound into JNDI at this location. We reference 
-      this in META-INF/persistence.xml -->
+    
     <datasource jndi-name="java:jboss/datasources/ExampleDS2" pool-name="ExampleDS2"
         enabled="true" use-java-context="true">
         <connection-url>jdbc:h2:mem:erudio-jee-jsf-twiter-bootstrap;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
@@ -12,5 +12,63 @@
             <password>sa</password>
         </security>
     </datasource>
+    <!-- The datasource is bound into JNDI at this location. We reference this 
+        in META-INF/persistence.xml -->
+    <!-- <datasource jndi-name="java:jboss/datasources/PostgreSQLDS"
+        pool-name="PostgreSQLDS" enabled="true" use-java-context="true">
+        <connection-url>jdbc:postgresql://localhost:5432/erudio</connection-url>
+        <driver>postgresql</driver>
+        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+        <pool>
+            <min-pool-size>10</min-pool-size>
+            <max-pool-size>100</max-pool-size>
+            <prefill>true</prefill>
+        </pool>
+        <security>
+            <user-name>root</user-name>
+            <password>root</password>
+        </security>
+        <statement>
+            <prepared-statement-cache-size>32</prepared-statement-cache-size>
+            <share-prepared-statements>true</share-prepared-statements>
+        </statement>
+    </datasource>
+
+    <datasource jndi-name="java:jboss/datasources/EJB_TRAININGDS"
+        pool-name="EJB_TRAININGDS" enabled="true" use-java-context="true"
+        use-ccm="true">
+        <connection-url>jdbc:mysql://localhost:3306/ejb_training</connection-url>
+        <driver>mysql-connector-java-5.1.17-bin.jar</driver>
+        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+        <pool>
+            <min-pool-size>10</min-pool-size>
+            <max-pool-size>100</max-pool-size>
+            <prefill>true</prefill>
+        </pool>
+        <security>
+            <user-name>root</user-name>
+        </security>
+        <validation>
+            <valid-connection-checker
+                class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker" />
+            <exception-sorter
+                class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter" />
+        </validation>
+        <statement>
+            <prepared-statement-cache-size>100</prepared-statement-cache-size>
+            <share-prepared-statements>true</share-prepared-statements>
+        </statement>
+    </datasource>
+    <drivers>
+        <driver name="mysql" module="com.mysql">
+            <datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</datasource-class>
+        </driver>
+        <driver name="h2" module="com.h2database.h2">
+            <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+        </driver>
+        <driver name="postgresql" module="org.postgresql">
+            <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
+        </driver>
+    </drivers> -->
 </datasources>
  
