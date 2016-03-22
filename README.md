@@ -1,4 +1,4 @@
-Erudio JEE JSF Twitter Bootstrap: Using Multiple Java EE 6 Technologies Deployed as an EAR
+Erudio JEE JSF Twitter Bootstrap: Using Multiple Java EE 7 Technologies Deployed as an EAR
 ==============================================================================================
 
 [![Build Status](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twiter-bootstrap.svg?branch=master)](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twiter-bootstrap)
@@ -27,9 +27,27 @@ This project was builded based in [JBoss Archetypes -JEE](http://www.jboss.org//
 What is it?
 -----------
 
-The `erudio-jee-jsf-twiter-bootstrap` quickstart is a deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on Red Hat WildFly 10. 
+The `erudio-jee-jsf-twiter-bootstrap` quickstart demonstrates the deployment of an EAR artifact to Red Hat JBoss Enterprise Application Platform. The EAR contains: *JSF* WAR and an *EJB* JAR.
 
-It demonstrates how to create a compliant Java EE 6 application using JSF 2.1, CDI 1.0, JAX-RS, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java. It is based on the [kitchensink](../kitchensink/README.md) quickstart but is packaged as an EAR archive.
+The example is composed of three Maven projects, each with a shared parent. The projects are as follows:
+
+1. `ejb`: This project contains the EJB code and can be built independently to produce the JAR archive.
+
+2. `web`: This project contains the JSF pages and the managed bean.
+
+3. `ear`: This project builds the EAR artifact and pulls in the EJB and Web artifacts.
+
+The root `pom.xml` builds each of the subprojects in the above order and deploys the EAR archive to the server.
+
+The example follows the common "Hello World" pattern. These are the steps that occur:
+
+1. A JSF page asks the user for their name.
+2. On clicking _Greet_, the name is sent to a managed bean named `Greeter`.
+3. On setting the name, the `Greeter` invokes the `GreeterEJB`, which was injected to the managed bean. Notice the field annotated with `@EJB`.
+4. The response from invoking the `GreeterEJB` is stored in a field (message) of the managed bean.
+5. The managed bean is annotated as `@SessionScoped`, so the same managed bean instance is used for the entire session. This ensures that the message is available when the page reloads and is displayed to the user.
+
+It demonstrates how to create a compliant Java EE 7 application using JSF 2.1, CDI 1.0, JAX-RS, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java. It is based on the [kitchensink](../kitchensink/README.md) quickstart but is packaged as an EAR archive.
 
 _Note: This quickstart uses the H2 database included with Red Hat WildFly 10. It is a lightweight, relational example datasource that is used for examples only. It is not robust or scalable, is not supported, and should NOT be used in a production environment!_
 
@@ -39,9 +57,9 @@ _Note: This quickstart uses a `*-ds.xml` datasource configuration file for conve
 System requirements
 -------------------
 
-The application this project produces is designed to be run on Red Hat WildFly 10 or later. 
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform 7 or later. 
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
+All you need to build this project is Java 8.0 (Java SDK 1.8) or later and Maven 3.1.1 or later. See [Configure Maven for WildFly 10](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN_JBOSS_EAP7.md#configure-maven-to-build-and-deploy-the-quickstarts) to make sure you are configured correctly for testing the quickstarts.
 
  
 Configure Maven
@@ -50,34 +68,34 @@ Configure Maven
 If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) before testing the quickstarts.
 
 
-Use of EAP_HOME
+Use of WILDFLY_HOME
 ---------------
 
-In the following instructions, replace `EAP_HOME` with the actual path to your JBoss EAP 6 installation. The installation path is described in detail here: [Use of EAP_HOME and JBOSS_HOME Variables](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME.md#use-of-eap_home-and-jboss_home-variables).
+In the following instructions, replace `WILDFLY_HOME` with the actual path to your WildFly installation. The installation path is described in detail here: [Use of WILDFLY_HOME and JBOSS_HOME Variables](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP7_HOME.md#use-of-eap_home-and-jboss_home-variables).
 
 
-Start the JBoss EAP Server
+Start the WildFly Server
 -------------------------
 
-1. Open a command prompt and navigate to the root of the JBoss EAP directory.
+1. Open a command prompt and navigate to the root of the WildFly directory.
 2. The following shows the command line to start the server:
 
-        For Linux:   EAP_HOME/bin/standalone.sh
-        For Windows: EAP_HOME\bin\standalone.bat
+        For Linux:   WILDFLY_HOME/bin/standalone.sh
+        For Windows: WILDFLY_HOME\bin\standalone.bat
 
- 
+
 Build and Deploy the Quickstart
 -------------------------
 
 _NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/BUILD_AND_DEPLOY.md#build-and-deploy-the-quickstarts) for complete instructions and additional options._
 
-1. Make sure you have started the JBoss EAP server as described above.
+1. Make sure you have started the WildFly server as described above.
 2. Open a command prompt and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
-        mvn clean install jboss-as:deploy
+        mvn clean install wildfly:deploy
 
-4. This will deploy `target/erudio-jee-jsf-twiter-bootstrap.ear` to the running instance of the server.
+4. This will deploy `ear/target/erudio-jee-jsf-twiter-bootstrap.ear` to the running instance of the server.
 
 
 Access the application 
@@ -96,11 +114,11 @@ The application will be running at the following URL: <http://localhost:8080/eru
 Undeploy the Archive
 --------------------
 
-1. Make sure you have started the JBoss EAP server as described above.
+1. Make sure you have started the WildFly server as described above.
 2. Open a command prompt and navigate to the root directory of this quickstart.
 3. When you are finished testing, type this command to undeploy the archive:
 
-        mvn jboss-as:undeploy
+        mvn wildfly:undeploy
 
 
 Run the Arquillian Tests 
