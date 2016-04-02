@@ -1,7 +1,7 @@
 Erudio JEE JSF Twitter Bootstrap: Using Multiple Java EE 7 Technologies Deployed as an EAR
 ==============================================================================================
 
-[![Build Status](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twiter-bootstrap.svg?branch=master)](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twiter-bootstrap)
+[![Build Status](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twitter-bootstrap.svg?branch=master)](https://travis-ci.org/leandrocgsi/erudio-jee-jsf-twitter-bootstrap)
 
 Level: Intermediate  
 Technologies: CDI, JSF, JPA, EJB, JAX-RS, BV, EAR  
